@@ -28,11 +28,25 @@ module.exports = {
       hoverColor: "#ff9601",
       colorSelect: "#303030",
       ringSelect: "#66afe9",
+      blOpacity: "rgba(0, 0, 0, 0.6)",
     },
     backgroundImage: {
       "custom-gradient": "linear-gradient(to right, #c43126, #eec334)",
+      "custom-playbtn-gradient":
+        "linear-gradient(to right, rgba(196, 49, 38, 0.5), rgba(238, 195, 52, 0.5))",
     },
-    extend: {},
+    extend: {
+      keyframes: {
+        scaleIn: {
+          "0%": { transform: "scale(3)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+      },
+      animation: {
+        "play-scale-in": "scaleIn 0.20s ease-out forwards",
+        "play-scale-out": "scaleOut 0.5s ease-in forwards", // If you have a reverse animation
+      },
+    },
   },
   plugins: [
     plugin(function ({ addBase, theme }) {
