@@ -29,6 +29,7 @@ module.exports = {
       colorSelect: "#303030",
       ringSelect: "#66afe9",
       blOpacity: "rgba(0, 0, 0, 0.6)",
+      colorFooter: "#408bea",
     },
     backgroundImage: {
       "custom-gradient": "linear-gradient(to right, #c43126, #eec334)",
@@ -52,7 +53,7 @@ module.exports = {
     plugin(function ({ addBase, theme }) {
       addBase({
         h1: { fontSize: theme("fontSize.3xl") },
-        h2: { fontSize: theme("fontSize.xl") },
+        h2: { fontSize: theme("fontSize.md") },
         h3: { fontSize: theme("fontSize.lg") },
       });
     }),

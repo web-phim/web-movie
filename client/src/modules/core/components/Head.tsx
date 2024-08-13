@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../../assets/images/logo.png";
+import { FaUserCircle, FaUserPlus } from "react-icons/fa";
 const Head: React.FC = () => {
   return (
     <div className="px-16 gap-10 flex justify-items bg-PrimaryColor fixed top-0 left-0 right-0 z-10">
@@ -68,7 +69,18 @@ const Head: React.FC = () => {
           <h2>TOP PHIM</h2>
         </a>
       </div>
-      <div className="flex-1 flex relative items-center"></div>
+      <div className="flex-1">
+        <ul className="text-colorWhite flex items-center w-full h-full ">
+          <li className="hover:cursor-pointer hover:text-hoverColor mx-3 flex items-center h-full">
+            <FaUserCircle className="mr-2" />
+            Đăng nhập
+          </li>
+          <li className="hover:cursor-pointer hover:text-hoverColor mx-3 flex items-center h-full">
+            <FaUserPlus className="mr-2" />
+            Đăng ký
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

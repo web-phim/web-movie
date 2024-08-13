@@ -16,7 +16,7 @@ const Filter: React.FC = () => {
             id=""
             className="rounded p-1 max-h-8 overflow-y-auto bg-colorSelect
                  text-colorWhite border border-colorWhite focus:ring-1
-                  focus:ring-ringSelect"
+                  focus:ring-ringSelect hover:cursor-pointer"
           >
             <option value="">Thể loại</option>
             <option value="dog">Phim hành động</option>
@@ -32,7 +32,7 @@ const Filter: React.FC = () => {
             id=""
             className="rounded p-1 max-h-8 overflow-y-auto bg-colorSelect text-colorWhite
                 border border-colorWhite focus:ring-1
-                  focus:ring-ringSelect"
+                  focus:ring-ringSelect hover:cursor-pointer"
           >
             <option value="">Quốc gia</option>
             <option value="dog">Việt Nam</option>
@@ -48,7 +48,7 @@ const Filter: React.FC = () => {
             id=""
             className="rounded p-1 max-h-8 overflow-y-auto bg-colorSelect text-colorWhite
                 border border-colorWhite focus:ring-1
-                  focus:ring-ringSelect"
+                  focus:ring-ringSelect hover:cursor-pointer"
           >
             <option value="">Năm phát hành</option>
             <option value="dog">2024</option>
@@ -64,7 +64,7 @@ const Filter: React.FC = () => {
             id=""
             className="rounded p-1 max-h-8 overflow-y-auto bg-colorSelect text-colorWhite
                 border border-colorWhite focus:ring-1
-                  focus:ring-ringSelect"
+                  focus:ring-ringSelect hover:cursor-pointer"
           >
             <option value="">Phụ đề</option>
             <option value="dog">Thuyết minh</option>
@@ -75,7 +75,7 @@ const Filter: React.FC = () => {
             id=""
             className="rounded p-1 max-h-8 overflow-y-auto bg-colorSelect text-colorWhite 
                 border border-colorWhite focus:ring-1
-                  focus:ring-ringSelect"
+                  focus:ring-ringSelect hover:cursor-pointer"
           >
             <option className="" value="">
               Phim lẻ
