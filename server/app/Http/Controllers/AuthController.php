@@ -82,22 +82,23 @@ class   AuthController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:6',
         ]);
 
-        if (!Auth::attempt($request->only('email', 'password'))) {
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+        if (!$token = Auth::guard('api')->attempt($request->only('email', 'password'))) {
             return response()->json(['message' => 'Unauthorized'], 401);
         }
 
-        $user = Auth::user();
-        $token = $user->createToken('auth_token', [$user->role])->accessToken;
+        $user = Auth::guard('api')->user();
 
         return response()->json([
             'token' => $token,
             'user' => $user,
-            'role' => $user->role, // Assuming 'role' is a column in your users table
         ], 200);
     }
 }
