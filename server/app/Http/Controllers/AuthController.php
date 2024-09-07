@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
@@ -41,20 +42,18 @@ class   AuthController extends Controller
 
     public function handleGoogleCallback()
     {
+
         $googleUser = Socialite::driver('google')->stateless()->user();
+        $user = User::create([
+            'email' => $googleUser->getEmail(),
+            'username' => $googleUser->getName(),
+            'password' => bcrypt(Str::random(24)) // Tạo mật khẩu ngẫu nhiên
+        ]);
 
-        $user = User::firstOrCreate(
-            ['email' => $googleUser->getEmail()],
-            [
-                'name' => $googleUser->getName(),
-                'google_id' => $googleUser->getId(),
-                'password' => bcrypt('google123456') // Tạo mật khẩu mặc định
-            ]
-        );
-
-        $token = $user->createToken('auth_token')->accessToken;
+        $token = JWTAuth::fromUser($user);
 
         return response()->json(['token' => $token, 'user' => $user], 200);
+
     }
 
     public function redirectToFacebook()
