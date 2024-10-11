@@ -1,14 +1,10 @@
 import React from "react";
-interface CardProps {
-  linkIMG: string;
-  label: string;
-  movieName: string;
-}
+import { CardProps } from "../../interfaces/interfaces";
 const Card: React.FC<CardProps> = ({ linkIMG, label, movieName }) => {
   return (
     <div>
       <a href="https://tailwindcss.com/docs/animation#using-custom-values">
-        <div className="group relative overflow-hidden w-full h-full">
+        <div className="group relative overflow-hidden ">
           <div
             className="bg-cover bg-center bg-no-repeat w-full h-full transition-transform duration-300 group-hover:scale-110"
             style={{
@@ -19,7 +15,7 @@ const Card: React.FC<CardProps> = ({ linkIMG, label, movieName }) => {
               height: "300px",
             }}
           >
-            <div className="h-full w-full flex items-center justify-center absolute opacity-0 group-hover:opacity-100 group-hover:animate-play-scale-in">
+            <div className="h-full w-full flex items-center justify-center  opacity-0 group-hover:opacity-100 group-hover:animate-play-scale-in">
               <div
                 className="w-16 h-16 bg-custom-playbtn-gradient rounded-full relative
                   flex items-center justify-center"

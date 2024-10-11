@@ -47,6 +47,9 @@ module.exports = {
         "play-scale-in": "scaleIn 0.20s ease-out forwards",
         "play-scale-out": "scaleOut 0.5s ease-in forwards", // If you have a reverse animation
       },
+      fontSize: {
+        xxs: "0.5rem", // Kích thước chữ tùy chỉnh
+      },
     },
   },
   plugins: [

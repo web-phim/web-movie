@@ -6,6 +6,7 @@ import Filter from "./modules/core/components/Filter.tsx";
 import Card from "./modules/core/components/Card.tsx";
 import Foot from "./modules/core/components/Foot.tsx";
 import Pagination from "./modules/core/components/Page.tsx";
+import SideBar from "./modules/core/components/SideBar.tsx";
 // Define the array with fake data
 const cardData = [
   {
@@ -76,16 +77,24 @@ const App: React.FC = () => {
       <Header />
       <main className="px-16 bg-SecondaryColor mt-24">
         <Filter />
-        <div className="h-fit w-full grid gap-4 grid-cols-5">
-          {cardData.map((data, index) => (
-            <Card
-              key={index}
-              linkIMG={data.linkIMG}
-              label={data.label}
-              movieName={data.movieName}
-            />
-          ))}
+
+        <div className="flex">
+          <div className="h-fit w-full grid gap-4 grid-cols-4 flex-1 pr-5">
+            {cardData.map((data, index) => (
+              <Card
+                key={index}
+                linkIMG={data.linkIMG}
+                label={data.label}
+                movieName={data.movieName}
+              />
+            ))}
+          </div>
+
+          <div className="h-fit w-fit">
+            <SideBar />
+          </div>
         </div>
+
         <div className="bg-SecondaryColor w-fit mt-5 mx-auto mb-5">
           <Pagination totalPage={10} callback={(val) => console.log(val)} />
         </div>
